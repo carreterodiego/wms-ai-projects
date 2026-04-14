@@ -65,20 +65,20 @@
   <div class="header">
     <p class="header-meta">Waikato Management School &nbsp;·&nbsp; Research Library</p>
     <h1>Research Library</h1>
-    <p class="header-intro">Key takeaways and grading-agent implications for all 14 source documents. Download links require a Waikato Microsoft account.</p>
+    <p class="header-intro">Key takeaways and grading-agent implications for each source document. Download links require a Waikato Microsoft account.</p>
   </div>
 
   <div class="sp-notice">Download links open files from SharePoint. You must be signed into your Waikato Microsoft account to access them.</div>
 
   <div class="controls">
-    <button class="filter-btn active" data-filter="all">All (14)</button>
+    <button class="filter-btn active" data-filter="all">All</button>
     <button class="filter-btn" data-filter="review">Literature Review</button>
     <button class="filter-btn" data-filter="empirical">Empirical Study</button>
     <button class="filter-btn" data-filter="practice">Practice / Guide</button>
     <button class="filter-btn" data-filter="framework">Framework</button>
     <button class="filter-btn" data-filter="prompt">Prompt Engineering</button>
   </div>
-  <div class="count-line" id="countLine">Showing 14 of 14 documents</div>
+  <div class="count-line" id="countLine"></div>
 
   <div class="table-wrap">
   <table>
@@ -198,6 +198,8 @@
   const btns = document.querySelectorAll('.filter-btn');
   const rows = document.querySelectorAll('#tableBody tr');
   const countLine = document.getElementById('countLine');
+  const total = rows.length;
+  countLine.textContent = `Showing ${total} of ${total} documents`;
   btns.forEach(btn => {
     btn.addEventListener('click', () => {
       btns.forEach(b => b.classList.remove('active'));
@@ -209,7 +211,6 @@
           row.classList.remove('hidden'); visible++;
         } else { row.classList.add('hidden'); }
       });
-      const total = rows.length;
       countLine.textContent = filter === 'all' ? `Showing ${total} of ${total} documents` : `Showing ${visible} of ${total} documents`;
     });
   });
