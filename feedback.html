@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback — WMS AI Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1a18; --ink-soft: #4a4a46; --ink-muted: #8a8a84;
+    --paper: #f7f5f0; --paper-warm: #eeebe3; --paper-card: #ffffff;
+    --accent: #3d5a80; --accent-light: #e8eef4;
+    --amber: #b06000; --amber-light: #fdf0e0;
+    --teal: #1d7a6a; --teal-light: #e2f0ed;
+    --border: rgba(26,26,24,0.12);
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --radius: 8px; --shadow: 0 1px 3px rgba(0,0,0,0.07), 0 4px 12px rgba(0,0,0,0.04);
+  }
+  body { font-family: var(--sans); background: var(--paper); color: var(--ink); font-size: 14px; line-height: 1.7; }
+  .nav { background: var(--paper-warm); border-bottom: 0.5px solid var(--border); padding: 0.6rem 1.5rem; font-size: 12px; }
+  .nav a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  .page { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+  .header { border-bottom: 1.5px solid var(--ink); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+  .header-meta { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.5rem; }
+  .header h1 { font-family: var(--serif); font-size: 2.2rem; font-weight: 400; line-height: 1.2; margin-bottom: 0.4rem; }
+  .header-intro { font-size: 14px; color: var(--ink-soft); line-height: 1.8; max-width: 620px; }
+  .section { margin-bottom: 2.5rem; }
+  .section-label { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.75rem; padding-bottom: 0.4rem; border-bottom: 0.5px solid var(--border); }
+  .card { background: var(--paper-card); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 0.75rem; box-shadow: var(--shadow); }
+  .card-title { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 0.5rem; }
+  .card-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 1rem; }
+  .coming-soon { display: inline-flex; align-items: center; gap: 8px; background: var(--amber-light); color: var(--amber); font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: 20px; }
+  hr { border: none; border-top: 0.5px solid var(--border); margin: 2rem 0; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="index.html">← WMS AI Hub</a></div>
+<div class="page">
+
+  <div class="header">
+    <p class="header-meta">Waikato Management School &nbsp;·&nbsp; Feedback</p>
+    <h1>Feedback &amp; Submissions</h1>
+    <p class="header-intro">Two ways to contribute: share your experience using one of the GPT agents, or suggest a relevant article or best practice for the research library.</p>
+  </div>
+
+  <div class="section">
+    <p class="section-label">GPT usage feedback</p>
+    <div class="card">
+      <p class="card-title">Share your experience</p>
+      <p class="card-desc">Used one of the GPT agents? We want to hear what worked, what didn't, and what could be improved. Feedback is reviewed after each testing session and informs the next iteration of each agent.</p>
+      <span class="coming-soon">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Form coming soon
+      </span>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="section">
+    <p class="section-label">Submit an article or best practice</p>
+    <div class="card">
+      <p class="card-title">Suggest a resource</p>
+      <p class="card-desc">Found a relevant article, report, or best practice on AI in education, assessment, or grading? Submit it here and we'll review it for inclusion in the research library.</p>
+      <span class="coming-soon">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Form coming soon
+      </span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

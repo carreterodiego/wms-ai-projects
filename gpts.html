@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GPT Agents — WMS AI Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1a18; --ink-soft: #4a4a46; --ink-muted: #8a8a84;
+    --paper: #f7f5f0; --paper-warm: #eeebe3; --paper-card: #ffffff;
+    --accent: #3d5a80; --accent-light: #e8eef4;
+    --teal: #1d7a6a; --teal-light: #e2f0ed;
+    --amber: #b06000; --amber-light: #fdf0e0;
+    --purple: #5a3e8a; --purple-light: #f0ecf8;
+    --coral: #c0392b; --coral-light: #fdecea;
+    --border: rgba(26,26,24,0.12); --border-strong: rgba(26,26,24,0.22);
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --radius: 8px; --shadow: 0 1px 3px rgba(0,0,0,0.07), 0 4px 12px rgba(0,0,0,0.04);
+  }
+  body { font-family: var(--sans); background: var(--paper); color: var(--ink); font-size: 14px; line-height: 1.7; }
+  .nav { background: var(--paper-warm); border-bottom: 0.5px solid var(--border); padding: 0.6rem 1.5rem; font-size: 12px; }
+  .nav a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  .page { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+  .header { border-bottom: 1.5px solid var(--ink); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+  .header-meta { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.5rem; }
+  .header h1 { font-family: var(--serif); font-size: 2.2rem; font-weight: 400; line-height: 1.2; margin-bottom: 0.4rem; }
+  .header-intro { font-size: 14px; color: var(--ink-soft); line-height: 1.8; max-width: 620px; }
+  .section-label { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.75rem; padding-bottom: 0.4rem; border-bottom: 0.5px solid var(--border); }
+  .section { margin-bottom: 2.5rem; }
+  .card { background: var(--paper-card); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 0.75rem; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.6rem; flex-wrap: wrap; }
+  .card-title { font-size: 14px; font-weight: 500; color: var(--ink); }
+  .card-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 0.75rem; }
+  .badge { font-size: 10px; font-weight: 500; padding: 2px 8px; border-radius: 20px; white-space: nowrap; }
+  .b-active { background: var(--accent-light); color: var(--accent); }
+  .b-untested { background: var(--coral-light); color: var(--coral); }
+  .b-purple { background: var(--purple-light); color: var(--purple); }
+  .b-gray { background: var(--paper-warm); color: var(--ink-soft); border: 0.5px solid var(--border); }
+  .meta { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .blist { list-style: none; padding: 0; }
+  .blist li { position: relative; padding-left: 1.1rem; font-size: 13px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 3px; }
+  .blist li::before { content: '–'; position: absolute; left: 0; color: var(--ink-muted); }
+  .blist li strong { color: var(--ink); font-weight: 500; }
+  .access-btn { display: inline-flex; align-items: center; gap: 6px; margin-top: 0.75rem; font-size: 12px; font-weight: 500; padding: 5px 12px; border-radius: 20px; border: 0.5px solid var(--border); background: var(--paper-warm); color: var(--ink-soft); text-decoration: none; cursor: default; }
+  .notice { background: var(--accent-light); border-left: 3px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; padding: 0.75rem 1rem; font-size: 13px; color: var(--ink-soft); margin-bottom: 2rem; }
+  hr { border: none; border-top: 0.5px solid var(--border); margin: 2rem 0; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="index.html">← WMS AI Hub</a></div>
+<div class="page">
+
+  <div class="header">
+    <p class="header-meta">Waikato Management School &nbsp;·&nbsp; GPT Agents</p>
+    <h1>GPT Agents</h1>
+    <p class="header-intro">Custom GPT agents built on OpenAI's GPT-4o platform. Each agent is designed for a specific task and built with a two-component architecture — a system prompt and a knowledge base. All agents are in development and have not yet been tested against real submissions.</p>
+  </div>
+
+  <div class="notice">All agents listed here are in development. Access links will be added once agents are ready for testing.</div>
+
+  <div class="section">
+    <p class="section-label">Assessment</p>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Marking Consistency GPT</span>
+        <div class="meta">
+          <span class="badge b-active">In development</span>
+          <span class="badge b-untested">Not yet tested</span>
+          <span class="badge b-purple">Prompt + KB</span>
+        </div>
+      </div>
+      <p class="card-desc">Applies a rubric to student submissions and returns structured grade recommendations with student-facing feedback. The marker reviews and signs off every recommendation before it reaches a student.</p>
+      <ul class="blist">
+        <li><strong>For:</strong> teaching staff and tutors</li>
+        <li><strong>Requires:</strong> rubric and assignment instructions uploaded at session start</li>
+      </ul>
+      <span class="access-btn">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Access link coming soon
+      </span>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Feedback Enhancer GPT</span>
+        <div class="meta">
+          <span class="badge b-active">In development</span>
+          <span class="badge b-untested">Not yet tested</span>
+          <span class="badge b-purple">Prompt + KB</span>
+        </div>
+      </div>
+      <p class="card-desc">Transforms a marker's shorthand notes into polished, rubric-aligned, student-facing feedback. The marker makes every evaluative decision — the agent handles the writing only.</p>
+      <ul class="blist">
+        <li><strong>For:</strong> teaching staff and tutors</li>
+        <li><strong>Requires:</strong> rubric uploaded at session start; marker notes per criterion</li>
+      </ul>
+      <span class="access-btn">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Access link coming soon
+      </span>
+    </div>
+
+  </div>
+
+  <hr>
+
+  <div class="section">
+    <p class="section-label">Research</p>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Ethics Application Preparation Assistant</span>
+        <div class="meta">
+          <span class="badge b-active">In development</span>
+          <span class="badge b-untested">Not yet tested</span>
+          <span class="badge b-gray">Prompt only</span>
+        </div>
+      </div>
+      <p class="card-desc">Guides WMS staff and students through the preparation stage before submitting a research ethics application. Identifies the correct form and the documents required.</p>
+      <ul class="blist">
+        <li><strong>For:</strong> research staff and students</li>
+        <li><strong>Requires:</strong> nothing — just describe your project type</li>
+      </ul>
+      <span class="access-btn">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Access link coming soon
+      </span>
+    </div>
+
+  </div>
+
+  <hr>
+
+  <div class="section">
+    <p class="section-label">Teaching support</p>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">WMS Case Builder</span>
+        <div class="meta">
+          <span class="badge b-active">In development</span>
+          <span class="badge b-untested">Not yet tested</span>
+          <span class="badge b-purple">Prompt + KB</span>
+        </div>
+      </div>
+      <p class="card-desc">Helps lecturers and tutors generate high-quality fictional teaching cases for classroom discussion, assignments, workshops, and exams. Guides the user through a structured interview and generates three scenario options before expanding the chosen one.</p>
+      <ul class="blist">
+        <li><strong>For:</strong> lecturers and tutors</li>
+        <li><strong>Requires:</strong> nothing — the agent collects all information through its interview</li>
+      </ul>
+      <span class="access-btn">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Access link coming soon
+      </span>
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>

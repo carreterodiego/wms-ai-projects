@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Library — WMS AI Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1a18; --ink-soft: #4a4a46; --ink-muted: #8a8a84;
+    --paper: #f7f5f0; --paper-warm: #eeebe3; --paper-card: #ffffff;
+    --accent: #3d5a80; --accent-light: #e8eef4;
+    --teal: #1d7a6a; --teal-light: #e2f0ed;
+    --amber: #b06000; --amber-light: #fdf0e0;
+    --purple: #5a3e8a; --purple-light: #f0ecf8;
+    --coral: #c0392b; --coral-light: #fdecea;
+    --green: #2d6a2d; --green-light: #eaf3e0;
+    --border: rgba(26,26,24,0.12); --border-strong: rgba(26,26,24,0.22);
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --radius: 8px; --shadow: 0 1px 3px rgba(0,0,0,0.07), 0 4px 12px rgba(0,0,0,0.04);
+  }
+  body { font-family: var(--sans); background: var(--paper); color: var(--ink); font-size: 14px; line-height: 1.7; }
+  .nav { background: var(--paper-warm); border-bottom: 0.5px solid var(--border); padding: 0.6rem 1.5rem; font-size: 12px; }
+  .nav a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  .page { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+  .header { border-bottom: 1.5px solid var(--ink); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+  .header-meta { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.5rem; }
+  .header h1 { font-family: var(--serif); font-size: 2.2rem; font-weight: 400; line-height: 1.2; margin-bottom: 0.4rem; }
+  .header-intro { font-size: 13px; color: var(--ink-soft); line-height: 1.8; max-width: 620px; margin-bottom: 0.5rem; }
+  .sp-notice { background: var(--accent-light); border-left: 3px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; padding: 0.6rem 1rem; font-size: 12px; color: var(--ink-soft); margin-bottom: 1.5rem; }
+  .controls { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .filter-btn { font-size: 11px; font-weight: 500; letter-spacing: 0.05em; padding: 5px 12px; border-radius: 20px; border: 0.5px solid var(--border); background: var(--paper-card); color: var(--ink-muted); cursor: pointer; transition: all 0.15s; }
+  .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .filter-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+  .count-line { font-size: 11px; color: var(--ink-muted); margin-bottom: 0.75rem; }
+  .table-wrap { background: var(--paper-card); border: 0.5px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; min-width: 700px; }
+  thead th { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); padding: 12px 16px; text-align: left; background: var(--paper-warm); border-bottom: 0.5px solid var(--border); white-space: nowrap; }
+  tbody tr { border-bottom: 0.5px solid var(--border); transition: background 0.12s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--paper-warm); }
+  tbody tr.hidden { display: none; }
+  td { padding: 14px 16px; vertical-align: top; font-size: 13px; line-height: 1.65; color: var(--ink-soft); }
+  .td-num { font-size: 11px; color: var(--ink-muted); width: 32px; text-align: center; padding-top: 16px; font-weight: 500; }
+  .doc-title { font-family: var(--serif); font-size: 13px; font-weight: 400; color: var(--ink); line-height: 1.35; margin-bottom: 4px; }
+  .doc-meta { font-size: 11px; color: var(--ink-muted); }
+  .tag { display: inline-block; font-size: 10px; font-weight: 500; letter-spacing: 0.04em; padding: 2px 7px; border-radius: 20px; margin-top: 6px; }
+  .tag-review { background: var(--teal-light); color: var(--teal); }
+  .tag-empirical { background: var(--coral-light); color: var(--coral); }
+  .tag-practice { background: var(--amber-light); color: var(--amber); }
+  .tag-framework { background: var(--purple-light); color: var(--purple); }
+  .tag-prompt { background: var(--accent-light); color: var(--accent); }
+  .implication { font-size: 12px; color: var(--ink-muted); margin-top: 8px; padding-top: 8px; border-top: 0.5px solid var(--border); }
+  .implication strong { font-size: 10px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-muted); display: block; margin-bottom: 3px; }
+  .td-download { width: 100px; text-align: center; vertical-align: middle; }
+  .dl-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 500; padding: 5px 10px; border-radius: 20px; border: 0.5px solid var(--border); color: var(--ink-soft); text-decoration: none; transition: all 0.15s; white-space: nowrap; }
+  .dl-btn:hover { border-color: var(--teal); color: var(--teal); background: var(--teal-light); }
+</style>
+</head>
+<body>
+<div class="nav"><a href="index.html">← WMS AI Hub</a></div>
+<div class="page">
+  <div class="header">
+    <p class="header-meta">Waikato Management School &nbsp;·&nbsp; Research Library</p>
+    <h1>Research Library</h1>
+    <p class="header-intro">Key takeaways and grading-agent implications for all 14 source documents. Download links require a Waikato Microsoft account.</p>
+  </div>
+
+  <div class="sp-notice">Download links open files from SharePoint. You must be signed into your Waikato Microsoft account to access them.</div>
+
+  <div class="controls">
+    <button class="filter-btn active" data-filter="all">All (14)</button>
+    <button class="filter-btn" data-filter="review">Literature Review</button>
+    <button class="filter-btn" data-filter="empirical">Empirical Study</button>
+    <button class="filter-btn" data-filter="practice">Practice / Guide</button>
+    <button class="filter-btn" data-filter="framework">Framework</button>
+    <button class="filter-btn" data-filter="prompt">Prompt Engineering</button>
+  </div>
+  <div class="count-line" id="countLine">Showing 14 of 14 documents</div>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th style="min-width:200px">Document</th>
+        <th style="min-width:280px">Key takeaways</th>
+        <th style="min-width:220px">Relevance to grading agents</th>
+        <th>File</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      <tr data-type="practice">
+        <td class="td-num">01</td>
+        <td><div class="doc-title">Custom GPTs at MIT Sloan: A Comprehensive Guide</div><div class="doc-meta">MIT Sloan EdTech · Practitioner guide</div><span class="tag tag-practice">Practice Guide</span></td>
+        <td>Custom GPTs can be built without coding using OpenAI's GPT builder. Effectiveness improves through iterative prompt refinement and uploading domain-specific knowledge files. Best-in-class use case is a tutoring agent that gathers rubric context, reviews the assignment, and provides annotated feedback. Data privacy is a hard constraint — no PII in knowledge bases.</td>
+        <td><div class="implication"><strong>Grading Agent Link</strong>Validates the two-document architecture (System Prompt + Knowledge Base). The iterative build-and-preview loop mirrors agent development practice. Confirms rubric upload as a core mechanism for alignment.</div></td>
+        <td class="td-download"><a class="dl-btn" href="https://waikatouniversitynz-my.sharepoint.com/:b:/r/personal/diego_carretero_waikato_ac_nz/Documents/Articles/Custom%20GPTs%20at%20MIT%20Sloan.docx?csf=1&web=1&e=MrDQN6&download=1" target="_blank"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download</a></td>
+      </tr>
+      <tr data-type="practice">
+        <td class="td-num">02</td>
+        <td><div class="doc-title">2025 EDUCAUSE Horizon Action Plan: Building Skills and Literacy for Teaching with GenAI</div><div class="doc-meta">EDUCAUSE / Jenay Robert · Sector report</div><span class="tag tag-practice">Practice Guide</span></td>
+        <td>GenAI appears across all six key trends for the next decade of HE. Institutions need action roadmaps with short-, mid-, and long-term milestones. Faculty development and AI governance are the highest-leverage pressure points.</td>
+        <td><div class="implication"><strong>Grading Agent Link</strong>Positions WMS grading agent work within a sector-level trend. Agents are ahead of where most institutions are heading, not peripheral to them.</div></td>
+        <td class="td-download"><a class="dl-btn" href="https://waikatouniversitynz-my.sharepoint.com/:b:/r/personal/diego_carretero_waikato_ac_nz/Documents/Articles/2025%20Horizon%20Action%20Plan%20Teaching%20With%20AI.pdf?csf=1&web=1&e=MrDQN6&download=1" target="_blank"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download</a></td>
+      </tr>
+      <tr data-type="review">
+        <td class="td-num">03</td>
+        <td><div class="doc-title">Generative AI in Higher Education: Seeing ChatGPT Through Universities' Policies, Resources, and Guidelines</div><div class="doc-meta">Wang et al. · Policy analysis</div><span class="tag tag-review">Literature Review</span></td>
+        <td>None of the top 100 US universities ban GenAI. 54.8% delegate decisions to instructors; 35.6% remain undecided. Key recommendations: accept AI's presence, align with learning objectives, evolve curriculum, and use multi-method assessment.</td>
+        <td><div class="implication"><strong>Grading Agent Link</strong>Supports the "instructor-as-decision-maker" framing for agent deployment. Useful context for positioning agents as academic support instruments, not automated replacements.</div></td>
+        <td class="td-download"><a class="dl-btn" href="https://waikatouniversitynz-my.sharepoint.com/:b:/r/personal/diego_carretero_waikato_ac_nz/Documents/Articles/Generative%20AI%20in%20Higher%20Education%20Seeing%20ChatGPT%20Through.pdf?csf=1&web=1&e=MrDQN6&download=1" target="_blank"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download</a></td>
+      </tr>
+      <tr data-type="framework">
+        <td class="td-num">04</td>
+        <td><div class="doc-title">Prompting With Purpose: The FRAME Model for Critical AI Use</div><div class="doc-meta">Dr Dannie Jefferies · University of Waikato (WMS)</div><span class="tag tag-framework">Framework</span></td>
+        <td>FRAME is a five-element prompt structure: Frame the LLM's role, Relevant Knowledge, Approach, Mode (output format), and Explain Limits. Each element is grounded in peer-reviewed prompt engineering research. Designed for MNGMT563 at WMS.</td>
+        <td><div class="implication"><strong>Grading Agent Link</strong>Direct design reference for agent system prompts — especially Role, structured reasoning, output format, and self-caveat requirements. The "Explain Limits" element maps onto band-anchoring and uncertainty-flagging logic.</div></td>
+        <td class="td-download"><a class="dl-btn" href="https://waikatouniversitynz-my.sharepoint.com/:b:/r/personal/diego_carretero_waikato_ac_nz/Documents/Articles/Prompting%20With%20Purpose%20The%20FRAME%20Model%20for%20Critical%20AI%20Use.pdf?csf=1&web=1&e=MrDQN6&download=1" target="_blank"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download</a></td>
+      </tr>
+      <tr data-type="empirical">
+        <td class="td-num">05</td>
+        <td><div class="doc-title">Grading the Graders: Comparing Generative AI and Human Assessment in Essay Evaluation</div><div class="doc-meta">Wetzler et al. · Teaching of Psychology, 2025</div><span class="tag tag-empirical">Empirical Study</span></td>
+        <td>AI grading showed reasonable alignment with human graders on structured rubrics but diverged on subjective dimensions. Human graders are susceptible to halo effect, grade inflation, and fatigue. AI is best positioned as a supplement for consistency, not a replacement for nuanced evaluation.</td>
+        <td><div class="implication"><strong>Grading Agent Link</strong>Empirical support for the "AI as consistency tool" framing. Validates the Marking Consistency GPT premise while flagging where human review remains essential.</div></td>
+        <td class="td-download"><a class="dl-btn" href="https://waikatouniversitynz-my.sharepoint.com/:b:/r/personal/diego_carretero_waikato_ac_nz/Documents/Articles/Grading%20the%20Graders%20Comparing%20Generative%20AI%20and%20Human%20Assessment%20in%20Essay%20Evaluation.pdf?csf=1&web=1&e=MrDQN6&download=1" target="_blank"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download</a></td>
+      </tr>
+      <tr data-type="practice">
+        <td class="td-num">06</td>
+        <td><div class="doc-title">Implementation Considerations for Automated AI Grading of Student Work</div><div class="doc-meta">Mixed-methods practitioner study</div><span class="tag tag-practice">Practice Guide</span></td>
+        <td>Teachers valued AI-generated narrative feedback more than numeric scores. Teacher mediation was essential when comments and grades diverged. Students wanted human involvement even when AI feedback was accurate. Design requirements: teacher oversight, clear interfaces, and support for iterative revision.</td>
+        <td><div class="implication"><strong>Grading Agent Link</strong>Strong support for the Feedback Enhancer GPT concept. Narrative feedback is more valued than numeric scores — validates the agent architecture that produces structured qualitative commentary.</div></td>
+        <td class="td-download"><a class="dl-btn" href="https://waikatouniversitynz-my.sharepoint.com/:b:/r/personal/diego_carretero_waikato_ac_nz/Documents/Articles/Implementation%20Considerations%20for%20Automated%20AI%20Grading%20of%20Student%20Work.pdf?csf=1&web=1&e=MrDQN6&download=1" target="_blank"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download</a></td>
+      </tr>
+      <tr data-type="empirical">
+        <td class="td-num">07</td>
+        <td><div class="doc-title">Changing Assessment Landscape in Management Education with AI-Driven Technologies</div><div class="doc-meta">Henadirage, Chathuranga & Gunarathne · IJETHE, 2026</div><span class="tag tag-empirical">Empirical Study</span></td>
+        <td>Academics reached modification/augmentation level for assessment design and feedback, but only substitution level for grading. Normative pressure is the primary adoption driver. Uncertainty about institutional permission is a significant barrier.</td>
+        <td><div class="implication"><strong>Grading Agent Link</strong>Supports positioning agents as augmentation tools. Confirms that social proof is a key adoption lever — early adopter framing at WMS could accelerate buy-in from hesitant faculty.</div></td>
+        <td class="td-download"><a class="dl-btn" href="https://waikatouniversitynz-my.sharepoint.com/:b:/r/personal/diego_carretero_waikato_ac_nz/Documents/Articles/Changing%20Assessment%20Landscape%20in%20Management%20Education%20with%20AIDriven%20Technologies.pdf?csf=1&web=1&e=MrDQN6&download=1" target="_blank"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download</a></td>
+      </tr>
+      <tr data-type="empirical">
+        <td class="td-num">08</td>
+        <td><div class="doc-title">The Application of GPT-4 in Grading Design University Students' Assignments</div><div class="doc-meta">Huang, Willems & Poon · IJTDE, 2026</div><span class="tag tag-empirical">Empirical Study</span></td>
+        <td>Custom GPT-4 with rubrics and a worked exemplar achieved ICC > 0.7 with human instructors. Without rubrics: poor reliability. With rubrics + exemplar: best result (ICC ≈ 0.73). Intra-rater overall ICC across all rounds = 0.9074.</td>
+        <td><div class="implication"><strong>Grading Agent Link</strong>Direct empirical validation for the iterative refinement method and rubric-plus-exemplar design. Confirms that a single good example in agent instructions is a meaningful reliability lever.</div></td>
+        <td class="td-download"><a class="dl-btn" href="https://waikatouniversitynz-my.sharepoint.com/:b:/r/personal/diego_carretero_waikato_ac_nz/Documents/Articles/The%20application%20of%20GPT4%20in%20grading%20design%20university.pdf?csf=1&web=1&e=MrDQN6&download=1" target="_blank"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download</a></td>
+      </tr>
+      <tr data-type="review">
+        <td class="td-num">09</td>
+        <td><div class="doc-title">A Comprehensive Review of AI-Powered Grading and Tailored Feedback in Universities</div><div class="doc-meta">Deepshikha · Discover Artificial Intelligence, 2025</div><span class="tag tag-review">Literature Review</span></td>
+        <td>Narrative review of 77 studies (2018–2025). AI grading reduces workload, improves consistency, and enables faster feedback. Critical challenges: algorithmic bias, data privacy, lack of transparency, need for human oversight. Transformative only when embedded in human-mediated processes.</td>
+        <td><div class="implication"><strong>Grading Agent Link</strong>Broad evidentiary base for the grading agent project. Emphasis on human oversight reinforces the "AI as co-grader, not autonomous grader" positioning.</div></td>
+        <td class="td-download"><a class="dl-btn" href="https://waikatouniversitynz-my.sharepoint.com/:b:/r/personal/diego_carretero_waikato_ac_nz/Documents/Articles/A%20Comprehensive%20Review%20of%20AIPowered%20Grading%20and%20Tailored%20Feedback%20in%20Universities.pdf?csf=1&web=1&e=MrDQN6&download=1" target="_blank"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download</a></td>
+      </tr>
+      <tr data-type="empirical">
+        <td class="td-num">10</td>
+        <td><div class="doc-title">Toward AI Grading of Student Problem Solutions in Introductory Physics: A Feasibility Study</div><div class="doc-meta">Kortemeyer · Phys. Rev. Physics Education Research, 2023</div><span class="tag tag-empirical">Empirical Study</span></td>
+        <td>GPT-4 + MathPix workflow achieved R² = 0.84 against human graders on a synthetic dataset. Promising for formative feedback; not reliable enough for final grade decisions without human review. GPT-4 requires no problem-specific training.</td>
+        <td><div class="implication"><strong>Grading Agent Link</strong>R² = 0.84 is a useful reliability benchmark. The "formative feedback, not final grades" conclusion is the defensible positioning for WMS agents too.</div></td>
+        <td class="td-download"><a class="dl-btn" href="https://waikatouniversitynz-my.sharepoint.com/:b:/r/personal/diego_carretero_waikato_ac_nz/Documents/Articles/Toward%20AI%20Grading%20of%20Student%20Problem%20Solutions%20in%20Introductory%20Physics%20A%20Feasibility%20Study.pdf?csf=1&web=1&e=MrDQN6&download=1" target="_blank"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download</a></td>
+      </tr>
+      <tr data-type="review">
+        <td class="td-num">11</td>
+        <td><div class="doc-title">A Systematic Review on the Future of Educational Assessment: AI-Driven Grading and Personalised Feedback in Higher Education</div><div class="doc-meta">Deepshikha · AI in Education (Emerald), 2026</div><span class="tag tag-review">Literature Review</span></td>
+        <td>87 studies reviewed. AI shows strong technical feasibility in objective assessment. Evidence strongly supports incremental, evidence-guided implementation. Human-AI hybrid is the dominant recommendation across the evidence base.</td>
+        <td><div class="implication"><strong>Grading Agent Link</strong>The "incremental, evidence-guided" recommendation validates piloting agents with one assessment type at a time before scaling. Useful for framing the WMS project as methodologically sound.</div></td>
+        <td class="td-download"><a class="dl-btn" href="https://waikatouniversitynz-my.sharepoint.com/:b:/r/personal/diego_carretero_waikato_ac_nz/Documents/Articles/A%20Systematic%20Review%20on%20the%20Future%20of%20Educational%20Assessment%20AIDriven%20Grading%20and%20Personalised%20Feedback%20in%20Higher%20Education.pdf?csf=1&web=1&e=MrDQN6&download=1" target="_blank"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download</a></td>
+      </tr>
+      <tr data-type="empirical">
+        <td class="td-num">12</td>
+        <td><div class="doc-title">Critical Thinking Assessment in Higher Education: A Mixed-Methods Comparative Analysis of AI and Human Evaluators</div><div class="doc-meta">Trikoili et al. · Int. Journal of Human-Computer Interaction, 2024</div><span class="tag tag-empirical">Empirical Study</span></td>
+        <td>ChatGPT 4.0 assessed critical thinking tasks. Absolute agreement ICC = 0.431 — not reliable enough for standalone grading. ChatGPT consistently assigned higher scores than the human grader and was more lenient with partial answers.</td>
+        <td><div class="implication"><strong>Grading Agent Link</strong>Key caution: AI leniency inflation is a documented pattern on open-response critical thinking tasks. Locked band values and structural gates directly address this tendency.</div></td>
+        <td class="td-download"><a class="dl-btn" href="https://waikatouniversitynz-my.sharepoint.com/:b:/r/personal/diego_carretero_waikato_ac_nz/Documents/Articles/Critical%20Thinking%20Assessment%20in%20Higher%20Education%20%20A%20MixedMethods%20Comparative%20Analysis%20of%20AI%20and%20Human%20Evaluator.pdf?csf=1&web=1&e=MrDQN6&download=1" target="_blank"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download</a></td>
+      </tr>
+      <tr data-type="prompt">
+        <td class="td-num">13</td>
+        <td><div class="doc-title">Leveraging Prompt-Based LLMs for Automated Scoring and Feedback Generation in Higher Education</div><div class="doc-meta">AlGhamdi et al. · Computers & Education, 2026</div><span class="tag tag-prompt">Prompt Engineering</span></td>
+        <td>Prompt composition vs. decomposition and task order both affect scoring accuracy. No single configuration dominated across all students. Confidence scoring (flagging low-certainty outputs for human review) is a promising safeguard.</td>
+        <td><div class="implication"><strong>Grading Agent Link</strong>Task order combined with prompt structure is the key variable. A potential future improvement: testing whether separating scoring and feedback generation steps improves accuracy for stronger submissions.</div></td>
+        <td class="td-download"><a class="dl-btn" href="https://waikatouniversitynz-my.sharepoint.com/:b:/r/personal/diego_carretero_waikato_ac_nz/Documents/Articles/Leveraging%20promptbased%20LLMs%20for%20automated%20scoring%20and%20feedback%20generation%20in%20higher%20education.pdf?csf=1&web=1&e=MrDQN6&download=1" target="_blank"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download</a></td>
+      </tr>
+      <tr data-type="empirical">
+        <td class="td-num">14</td>
+        <td><div class="doc-title">Making Sense of Generative AI for Assessments: Contrasting Student Claims and Assessor Evaluations</div><div class="doc-meta">Fischer et al. · Int. Journal of Management Education, 2024</div><span class="tag tag-empirical">Empirical Study</span></td>
+        <td>Management education context. Only ~10% of students reached the "critiquing" stage of sensemaking. Students overestimated their critical engagement with AI. Authentic sensemaking-oriented assessments are the best design response — not banning GenAI.</td>
+        <td><div class="implication"><strong>Grading Agent Link</strong>The 10% critiquing figure is a useful benchmark for calibrating grade distribution expectations in management programmes. The sensemaking framework also informs rubric design.</div></td>
+        <td class="td-download"><a class="dl-btn" href="https://waikatouniversitynz-my.sharepoint.com/:b:/r/personal/diego_carretero_waikato_ac_nz/Documents/Articles/Making%20sense%20of%20generative%20AI%20for%20assessments%20Contrasting%20student%20claims%20and%20assessor%20evaluations.pdf?csf=1&web=1&e=MrDQN6&download=1" target="_blank"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download</a></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+<script>
+  const btns = document.querySelectorAll('.filter-btn');
+  const rows = document.querySelectorAll('#tableBody tr');
+  const countLine = document.getElementById('countLine');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.getAttribute('data-filter');
+      let visible = 0;
+      rows.forEach(row => {
+        if (filter === 'all' || row.getAttribute('data-type') === filter) {
+          row.classList.remove('hidden'); visible++;
+        } else { row.classList.add('hidden'); }
+      });
+      const total = rows.length;
+      countLine.textContent = filter === 'all' ? `Showing ${total} of ${total} documents` : `Showing ${visible} of ${total} documents`;
+    });
+  });
+</script>
+</body>
+</html>
