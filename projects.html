@@ -336,10 +336,12 @@
     <div class="card">
       <p style="font-size:13px; color:var(--ink-soft); line-height:1.8; margin-bottom:0.75rem;">The assessment-related agents were built alongside a review of <k data-term="lit-review">peer-reviewed articles</k> on AI-assisted grading and GenAI in higher education. Every design choice is traceable to a finding or a known limitation in that literature.</p>
       <ul class="blist">
-        <li><k data-term="complement">AI as support, not replacement</k> — the consistent finding across the literature; all agents are built on this principle</li>
-        <li><k data-term="rubric-detail">Rubric quality drives output reliability</k> — detailed band descriptors in every knowledge base; rubric quality gate in the Marking Consistency agent</li>
-        <li><k data-term="fabrication">Fabrication risk</k> — LLMs can add unreferenced content; addressed directly by the Invention Guard</li>
-        <li><k data-term="fluency-bias">Length and fluency bias</k> — LLMs over-reward well-written submissions regardless of analytical depth; explicitly countered in the Marking Consistency prompt</li>
+        <li><k data-term="complement">AI as support, not replacement</k> — the consistent finding across the literature; all agents are built on this principle <span style="font-size:11px;color:var(--ink-muted);">(Deepshikha, 2025; Deepshikha, 2026; Implementation Considerations, 2025)</span></li>
+        <li><k data-term="rubric-detail">Rubric quality drives output reliability</k> — detailed band descriptors in every knowledge base; rubric quality gate in the Marking Consistency agent <span style="font-size:11px;color:var(--ink-muted);">(Huang et al., 2026)</span></li>
+        <li><k data-term="marker-variability">Human marker inconsistency is documented and significant</k> — even with a shared rubric, graders frequently disagree; inter-rater reliability among humans can be very low <span style="font-size:11px;color:var(--ink-muted);">(Messer et al., 2025; Wetzler et al., 2025)</span></li>
+        <li><k data-term="fabrication">Fabrication risk</k> — LLMs can add unreferenced content; addressed directly by the Invention Guard <span style="font-size:11px;color:var(--ink-muted);">(Huang et al., 2026)</span></li>
+        <li><k data-term="fluency-bias">Length and fluency bias</k> — LLMs over-reward well-written submissions regardless of analytical depth; explicitly countered in the Marking Consistency prompt <span style="font-size:11px;color:var(--ink-muted);">(AlGhamdi et al., 2026; Trikoili et al., 2024)</span></li>
+        <li><k data-term="developmental">Feedback quality matters pedagogically</k> — narrative feedback is valued more than numeric scores; vague or grade-justifying feedback has limited learning impact <span style="font-size:11px;color:var(--ink-muted);">(Implementation Considerations, 2025)</span></li>
         <li><k data-term="field-gap">Honest gap</k> — no peer-reviewed literature exists specifically on AI grading of business school case analysis; the assessment agents are framed as exploratory in that space</li>
       </ul>
     </div>
@@ -477,6 +479,16 @@ const definitions = {
   "rubric-detail": {
     term: "Rubric quality drives output reliability",
     body: "Multiple studies found that AI grading performance improves substantially when the agent has access to detailed rubric descriptors and at least one calibration example. Vague criteria produce unreliable outputs. This is why the knowledge base documents contain full band descriptors, and why the rubric quality gate exists.",
+    example: ""
+  },
+  "marker-variability": {
+    term: "Human marker inconsistency",
+    body: "Messer et al. (2025) found that 28 human graders could not consistently agree on grades for the same programming assignments — average inter-rater reliability (Krippendorff's α) was just 0.2 for correctness and below 0.1 for other criteria. Only 1 of 22 participants gave the same grade to a duplicated assignment across two sessions. Wetzler et al. (2025) found similar patterns in essay grading. A shared rubric alone is not sufficient — calibration and structured support are required.",
+    example: ""
+  },
+  "developmental": {
+    term: "Feedback quality matters pedagogically",
+    body: "Implementation Considerations (2025) found that teachers and students valued narrative feedback significantly more than numeric scores. Students wanted human involvement even when AI feedback was accurate. Vague or grade-justifying feedback — written to defend a mark rather than support learning — has limited developmental value. The Feedback Enhancer is designed to produce criterion-referenced, forward-looking feedback grounded in the marker's own observations.",
     example: ""
   },
   "fabrication": {
