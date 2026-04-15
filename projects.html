@@ -44,6 +44,7 @@
   /* SECTIONS */
   .section { margin-bottom: 2.5rem; }
   .section-label { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.75rem; padding-bottom: 0.4rem; border-bottom: 0.5px solid var(--border); }
+  .section-title { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1.5px solid var(--ink); }
 
   /* PROJECT CARDS */
   .project-card { background: var(--paper-card); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 0.75rem; box-shadow: var(--shadow); }
@@ -136,6 +137,7 @@
   </div>
 
   <!-- STICKY SECTION NAV -->
+  <p style="font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-muted);margin:1.5rem 0 0.4rem 0;">Jump to section</p>
   <div id="section-nav" style="position:sticky;top:37px;z-index:99;background:var(--paper);border-bottom:0.5px solid var(--border);padding:0.5rem 0;margin:0 0 1.5rem 0;display:flex;gap:0.25rem;flex-wrap:wrap;font-size:11px;font-weight:500;letter-spacing:0.04em;">
     <a href="#projects" style="color:var(--accent);text-decoration:none;padding:3px 10px;border-radius:20px;border:0.5px solid var(--accent);">Projects</a>
     <a href="#status" style="color:var(--ink-muted);text-decoration:none;padding:3px 10px;border-radius:20px;border:0.5px solid var(--border);">Current status</a>
@@ -149,20 +151,10 @@
   <!-- SECTION 1: PROJECTS -->
   <!-- ══════════════════════════════════════════ -->
   <div id="projects">
-
-    <!-- LEGEND -->
-    <div class="legend">
-      <div class="legend-item"><span class="badge b-proto">Prototype — open for testing</span> built, available to test, not yet validated</div>
-      <div class="legend-item"><span class="badge b-guide">User guide</span> step-by-step guide available</div>
-      <div class="legend-item"><span class="badge b-done">Delivered</span> built and in use</div>
-      <div class="legend-item"><span class="badge b-active">In development</span> actively being scoped or built</div>
-      <div class="legend-item"><span class="badge b-next">Next up</span> agreed, not yet started</div>
-      <div class="legend-item"><span class="badge b-gray">Prompt only</span> single-component design</div>
-      <div class="legend-item"><span class="badge b-purple">Prompt + KB</span> two-component design</div>
-    </div>
+    <h2 class="section-title">Projects</h2>
 
     <!-- FILTER -->
-    <div style="margin:1.25rem 0 1rem 0;">
+    <div style="margin:1.25rem 0 0.75rem 0;">
       <p style="font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:0.6rem;">Filter projects</p>
       <div style="display:flex;gap:6px;flex-wrap:wrap;">
         <button class="filter-btn active" data-filter="all">All</button>
@@ -171,6 +163,18 @@
         <button class="filter-btn" data-filter="teaching">Teaching</button>
         <button class="filter-btn" data-filter="student">Student-facing</button>
       </div>
+    </div>
+
+    <!-- LEGEND -->
+    <div class="legend" style="margin-top:0.75rem;">
+      <p style="font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:0.5rem;width:100%;">Badge guide</p>
+      <div class="legend-item"><span class="badge b-proto">Prototype — open for testing</span> built, available to test, not yet validated</div>
+      <div class="legend-item"><span class="badge b-guide">User guide</span> step-by-step guide available</div>
+      <div class="legend-item"><span class="badge b-done">Delivered</span> built and in use</div>
+      <div class="legend-item"><span class="badge b-active">In development</span> actively being scoped or built</div>
+      <div class="legend-item"><span class="badge b-next">Next up</span> agreed, not yet started</div>
+      <div class="legend-item"><span class="badge b-gray">Prompt only</span> single-component design</div>
+      <div class="legend-item"><span class="badge b-purple">Prompt + KB</span> two-component design</div>
     </div>
 
     <!-- ASSESSMENT PROJECTS -->
@@ -327,7 +331,7 @@
   <!-- SECTION 2: CURRENT STATUS -->
   <!-- ══════════════════════════════════════════ -->
   <div id="status" class="section">
-    <p class="section-label">Current status</p>
+    <h2 class="section-title">Current status</h2>
     <div class="card">
       <div class="status-row"><span class="dot dot-g"></span><span>4 agents built and deployable: Marking Consistency GPT, Feedback Enhancer GPT, Ethics Application Assistant, WMS Case Builder</span></div>
       <div class="status-row"><span class="dot dot-g"></span><span>all agents course-agnostic — adaptable to any assignment type, rubric, or cohort level without rebuilding</span></div>
@@ -343,7 +347,7 @@
   <!-- SECTION 3: EVIDENCE BASE -->
   <!-- ══════════════════════════════════════════ -->
   <div id="evidence" class="section">
-    <p class="section-label">Evidence base</p>
+    <h2 class="section-title">Evidence base</h2>
     <div class="card">
       <p style="font-size:13px; color:var(--ink-soft); line-height:1.8; margin-bottom:0.75rem;">The WMS AI agents were built alongside a review of <k data-term="lit-review">peer-reviewed literature</k> on AI-assisted grading, feedback quality, and GenAI in higher education. Every design choice is traceable to a finding or a known limitation in that literature.</p>
       <ul class="blist">
@@ -364,7 +368,7 @@
   <!-- SECTION 4: EXTERNAL TOOLS -->
   <!-- ══════════════════════════════════════════ -->
   <div id="external" class="section">
-    <p class="section-label">External tools assessed</p>
+    <h2 class="section-title">External tools assessed</h2>
 
     <div class="project-card">
       <div class="project-header">
@@ -389,7 +393,7 @@
   <!-- SECTION 5: HOW AGENTS ARE BUILT -->
   <!-- ══════════════════════════════════════════ -->
   <div id="architecture" class="section">
-    <p class="section-label">How the agents are built</p>
+    <h2 class="section-title">How the agents are built</h2>
     <div class="two-col">
       <div class="info-card">
         <p style="font-size:11px; font-weight:500; letter-spacing:0.07em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:0.5rem;">Two-component design</p>
@@ -410,7 +414,7 @@
   <!-- SECTION 6: MEETING LOG -->
   <!-- ══════════════════════════════════════════ -->
   <div id="log" class="section">
-    <p class="section-label">Meeting log</p>
+    <h2 class="section-title">Meeting log</h2>
     <div class="card">
       <table class="tbl">
         <thead>
