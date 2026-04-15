@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WMS Case Builder — WMS AI Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--ink:#1a1a18;--ink-soft:#4a4a46;--ink-muted:#8a8a84;--paper:#f7f5f0;--paper-warm:#eeebe3;--paper-card:#ffffff;--accent:#3d5a80;--accent-light:#e8eef4;--teal:#1d7a6a;--teal-light:#e2f0ed;--border:rgba(26,26,24,0.12);--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--radius:8px;--shadow:0 1px 3px rgba(0,0,0,0.07),0 4px 12px rgba(0,0,0,0.04)}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:14px;line-height:1.7}
+  .page{max-width:860px;margin:0 auto;padding:2rem 1.5rem 5rem}
+  .header{border-bottom:1.5px solid var(--ink);padding-bottom:1.5rem;margin-bottom:2rem}
+  .header-meta{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:0.5rem}
+  h1{font-family:var(--serif);font-size:2.2rem;font-weight:400;line-height:1.2;margin-bottom:0.4rem}
+  .subtitle{font-size:13px;color:var(--ink-soft);font-style:italic}
+  .section{margin-bottom:2rem}
+  .section-label{font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:0.75rem;padding-bottom:0.4rem;border-bottom:0.5px solid var(--border)}
+  .card{background:var(--paper-card);border:0.5px solid var(--border);border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:0.75rem;box-shadow:var(--shadow)}
+  .blist{list-style:none;padding:0}
+  .blist li{position:relative;padding-left:1.1rem;font-size:13px;color:var(--ink-soft);line-height:1.75;margin-bottom:4px}
+  .blist li::before{content:'–';position:absolute;left:0;color:var(--ink-muted)}
+  .blist li strong{color:var(--ink);font-weight:500}
+  .numbered{list-style:none;padding:0;counter-reset:steps}
+  .numbered li{position:relative;padding-left:2rem;font-size:13px;color:var(--ink-soft);line-height:1.75;margin-bottom:10px;counter-increment:steps}
+  .numbered li::before{content:counter(steps);position:absolute;left:0;top:0;width:1.4rem;height:1.4rem;background:var(--accent);color:white;border-radius:50%;font-size:11px;font-weight:500;display:flex;align-items:center;justify-content:center;line-height:1}
+  .numbered li strong{color:var(--ink);font-weight:500}
+  .note{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:0.75rem 1rem;font-size:13px;color:var(--ink-soft);font-style:italic;margin:0.75rem 0}
+  .warning{background:#fff3cd;border-left:3px solid #c9a227;border-radius:0 var(--radius) var(--radius) 0;padding:0.75rem 1rem;margin:0.75rem 0}
+  .warning-title{font-size:12px;font-weight:500;color:#7b3f00;margin-bottom:4px}
+  .warning-body{font-size:13px;color:#7b3f00}
+  .privacy{background:#ffe7e7;border-left:3px solid #c00000;border-radius:0 var(--radius) var(--radius) 0;padding:0.75rem 1rem;margin:0.75rem 0}
+  .privacy-title{font-size:12px;font-weight:500;color:#7b0000;margin-bottom:4px}
+  .privacy-body{font-size:13px;color:#7b0000}
+  .footer{margin-top:3rem;padding-top:1.5rem;border-top:0.5px solid var(--border);font-size:12px;color:var(--ink-muted)}
+  .footer a{color:var(--accent)}
+  hr{border:none;border-top:0.5px solid var(--border);margin:1.5rem 0}
+  p{font-size:13px;color:var(--ink-soft);line-height:1.75;margin-bottom:0.75rem}
+</style>
+</head>
+<body>
+<div style="background:#eeebe3;border-bottom:0.5px solid rgba(26,26,24,0.12);padding:0.6rem 1.5rem;font-size:12px;font-family:'DM Sans',system-ui,sans-serif;"><a href="projects.html" style="color:#3d5a80;text-decoration:none;font-weight:500;">← Projects</a> &nbsp;·&nbsp; <a href="index.html" style="color:#3d5a80;text-decoration:none;font-weight:500;">WMS AI Hub</a></div>
+<div class="page">
+  <div class="header">
+    <p class="header-meta">Waikato Management School · User Guide</p>
+    <h1>WMS Case Builder</h1>
+    <p class="subtitle">User Guide for Testing</p>
+  </div>
+  <div class="warning"><div class="warning-title">⚠ Important — this is a prototype</div><div class="warning-body">This tool is in active development and has not yet been independently validated. Always apply your own professional judgment. Your feedback is what will improve it.</div></div>
+  
+<div class="section">
+  <p class="section-label">What this tool does</p>
+  <div class="card">
+    <p>The WMS Case Builder helps you generate high-quality fictional teaching cases for classroom discussion, assignments, workshops, and exams. It guides you through a short interview to understand your teaching context, then generates three scenario options for you to choose from before building a full case.</p>
+    <div class="note">The tool produces a first draft — not a finished case. You are expected to read, refine, and adapt the output before using it in teaching or assessment. You remain responsible for the accuracy, appropriateness, and pedagogical quality of any case you use.</div>
+  </div>
+</div>
+<div class="section">
+  <p class="section-label">Before you start</p>
+  <div class="card">
+    <p>You do not need to prepare documents in advance. It helps to have a rough sense of:</p>
+    <ul class="blist">
+      <li><strong>The course or topic.</strong> e.g. Strategic Management, Leadership and Change, Marketing.</li>
+      <li><strong>What you want students to do with the case.</strong> e.g. apply a specific framework, identify a dilemma, make a recommendation.</li>
+      <li><strong>The case style.</strong> Highly Structured (exams, new students), Balanced (regular coursework), or Story-Driven (advanced students who must infer the problem).</li>
+      <li><strong>Approximate length.</strong> Short (300–500 words), Medium (600–900 words), or Long (1,000–1,500 words).</li>
+    </ul>
+    <p>Optionally, you can upload a reference case you consider high quality. The tool will calibrate its tone and style to match it.</p>
+  </div>
+</div>
+<div class="section">
+  <p class="section-label">How it works — step by step</p>
+  <div class="card">
+    <ol class="numbered">
+      <li><strong>Open the tool.</strong> It will explain the process briefly, then begin the interview.</li>
+      <li><strong>Answer the interview questions.</strong> The tool asks up to 11 questions covering student level, topic, learning outcomes, case type, organisational context, central challenge, teaching use, student deliverable, length, data needs, and case style. You can answer as many or as few as you like. Type "generate now" at any point if you want it to proceed with what it has.</li>
+      <li><strong>Choose from three scenario options.</strong> The tool presents three distinct scenario outlines, each differing on at least two dimensions. Pick the one that best fits your teaching context.</li>
+      <li><strong>Receive the full case.</strong> The tool expands the chosen scenario into a complete teaching case and runs a quality check before outputting. Optionally ask for a teaching note — it includes a synopsis, discussion questions, theoretical connections, and common student errors.</li>
+      <li><strong>Review and adapt.</strong> Read the case carefully. Check that the dilemma is genuine, the context is plausible, and no stakeholder inadvertently signals the right answer. Revise before using in teaching.</li>
+    </ol>
+  </div>
+</div>
+<div class="section">
+  <p class="section-label">What to watch for</p>
+  <div class="card">
+    <ul class="blist">
+      <li>Is the central dilemma genuinely open — could a well-prepared student argue for at least two different courses of action?</li>
+      <li>Does the case feel specific and plausible, or generic and vague?</li>
+      <li>Are the stakeholders real sources of tension, or just props?</li>
+      <li>Does the tone and complexity match the student level you specified?</li>
+      <li>For Story-Driven cases: is the problem never stated explicitly? Students should have to infer it.</li>
+      <li>Is there anything in the case that would be inappropriate or misleading for students?</li>
+    </ul>
+  </div>
+</div>
+<div class="section">
+  <p class="section-label">How to give feedback on the tool</p>
+  <div class="card">
+    <p>After testing, please note:</p>
+    <ul class="blist">
+      <li>How well the generated case matched your teaching context</li>
+      <li>Whether the scenario options were genuinely distinct and useful</li>
+      <li>Quality of the dilemma — was it genuinely open or did it signal a right answer?</li>
+      <li>How much editing was needed before the case would be usable</li>
+      <li>Any output that felt inappropriate or off-target</li>
+    </ul>
+    <p style="margin-top:0.75rem">Send your feedback directly to Diego Carretero or use the feedback form on the WMS AI Hub.</p>
+  </div>
+</div>
+  <div class="footer">Questions or difficulties? Contact Diego Carretero: <a href="mailto:diego.carretero@waikato.ac.nz">diego.carretero@waikato.ac.nz</a></div>
+</div>
+</body>
+</html>

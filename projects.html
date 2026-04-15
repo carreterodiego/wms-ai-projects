@@ -58,6 +58,10 @@
   .b-gray { background: var(--paper-warm); color: var(--ink-soft); border: 0.5px solid var(--border); }
   .b-purple { background: var(--purple-light); color: var(--purple); }
   .b-untested { background: #fdecea; color: #c0392b; }
+  .b-proto { background: #e8eef4; color: #1f4e79; border: 1px dashed #3d5a80; text-decoration: none; }
+  .b-proto:hover { background: #cfdce9; }
+  .b-guide { background: #e2f0ed; color: #1d7a6a; text-decoration: none; border: 0.5px solid #1d7a6a; }
+  .b-guide:hover { background: #c5e3dc; }
 
   /* KEY TERM */
   k { background: var(--accent-light); color: var(--accent); padding: 1px 5px; border-radius: 3px; font-weight: 500; cursor: pointer; border-bottom: 1px dashed var(--accent); transition: background 0.15s; }
@@ -120,7 +124,7 @@
     <p class="header-meta">Waikato Management School &nbsp;·&nbsp; AI Projects Overview</p>
     <h1>WMS AI Projects<br><em>Where we are</em></h1>
     <p class="header-intro">This document provides an overview of AI projects currently in development at Waikato Management School. It covers projects that have been built, projects agreed for the next phase, and external tools that have been assessed. It is updated after each working session.</p>
-    <p style="font-size:13px; color:var(--coral); font-weight:500; margin-top:0.75rem; padding:0.6rem 0.9rem; background:var(--coral-light); border-left:3px solid var(--coral); border-radius:0 var(--radius) var(--radius) 0;">All agents described in this document are in development. None have been tested against real submissions or deployed for live use.</p>
+    <p style="font-size:13px; color:var(--coral); font-weight:500; margin-top:0.75rem; padding:0.6rem 0.9rem; background:var(--coral-light); border-left:3px solid var(--coral); border-radius:0 var(--radius) var(--radius) 0;">Four agents are built and available for testing as prototypes. None have been independently validated against real submissions. All final judgments remain with the human marker or lecturer.</p>
     <p class="click-hint">Click any highlighted term for a plain-language explanation.</p>
   </div>
 
@@ -128,9 +132,11 @@
 
   <!-- LEGEND -->
   <div class="legend">
+    <div class="legend-item"><span class="badge b-proto">Prototype — open for testing</span> built, available to test, not yet validated</div>
+    <div class="legend-item"><span class="badge b-guide">User guide</span> step-by-step guide available</div>
     <div class="legend-item"><span class="badge b-untested">Not yet tested</span> built but not validated</div>
     <div class="legend-item"><span class="badge b-done">Delivered</span> built and in use</div>
-    <div class="legend-item"><span class="badge b-active">In development</span> actively being built</div>
+    <div class="legend-item"><span class="badge b-active">In development</span> actively being scoped or built</div>
     <div class="legend-item"><span class="badge b-next">Next up</span> agreed, not yet started</div>
     <div class="legend-item"><span class="badge b-gray">Prompt only</span> single-component design</div>
     <div class="legend-item"><span class="badge b-purple">Prompt + KB</span> two-component design</div>
@@ -144,8 +150,8 @@
       <div class="project-header">
         <span class="project-title">Marking Consistency GPT</span>
         <div class="project-meta">
-          <span class="badge b-active">In development</span>
-          <span class="badge b-untested">Not yet tested</span>
+          <a href="#" class="badge b-proto" title="Access link coming soon">Prototype — open for testing ↗</a>
+          <a href="guide-marking-consistency.html" class="badge b-guide">User guide</a>
           <span class="badge b-purple">Prompt + KB</span>
         </div>
       </div>
@@ -163,8 +169,8 @@
       <div class="project-header">
         <span class="project-title">Feedback Enhancer GPT</span>
         <div class="project-meta">
-          <span class="badge b-active">In development</span>
-          <span class="badge b-untested">Not yet tested</span>
+          <a href="#" class="badge b-proto" title="Access link coming soon">Prototype — open for testing ↗</a>
+          <a href="guide-feedback-enhancer.html" class="badge b-guide">User guide</a>
           <span class="badge b-purple">Prompt + KB</span>
         </div>
       </div>
@@ -186,8 +192,8 @@
       <div class="project-header">
         <span class="project-title">Ethics Application Preparation Assistant</span>
         <div class="project-meta">
-          <span class="badge b-active">In development</span>
-          <span class="badge b-untested">Not yet tested</span>
+          <a href="#" class="badge b-proto" title="Access link coming soon">Prototype — open for testing ↗</a>
+          <a href="guide-ethics.html" class="badge b-guide">User guide</a>
           <span class="badge b-gray">Prompt only</span>
         </div>
       </div>
@@ -235,8 +241,8 @@
       <div class="project-header">
         <span class="project-title">WMS Case Builder</span>
         <div class="project-meta">
-          <span class="badge b-active">In development</span>
-          <span class="badge b-untested">Not yet tested</span>
+          <a href="#" class="badge b-proto" title="Access link coming soon">Prototype — open for testing ↗</a>
+          <a href="guide-case-builder.html" class="badge b-guide">User guide</a>
           <span class="badge b-purple">Prompt + KB</span>
         </div>
       </div>

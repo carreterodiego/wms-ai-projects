@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback Enhancer GPT — WMS AI Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--ink:#1a1a18;--ink-soft:#4a4a46;--ink-muted:#8a8a84;--paper:#f7f5f0;--paper-warm:#eeebe3;--paper-card:#ffffff;--accent:#3d5a80;--accent-light:#e8eef4;--teal:#1d7a6a;--teal-light:#e2f0ed;--border:rgba(26,26,24,0.12);--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--radius:8px;--shadow:0 1px 3px rgba(0,0,0,0.07),0 4px 12px rgba(0,0,0,0.04)}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:14px;line-height:1.7}
+  .page{max-width:860px;margin:0 auto;padding:2rem 1.5rem 5rem}
+  .header{border-bottom:1.5px solid var(--ink);padding-bottom:1.5rem;margin-bottom:2rem}
+  .header-meta{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:0.5rem}
+  h1{font-family:var(--serif);font-size:2.2rem;font-weight:400;line-height:1.2;margin-bottom:0.4rem}
+  .subtitle{font-size:13px;color:var(--ink-soft);font-style:italic}
+  .section{margin-bottom:2rem}
+  .section-label{font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:0.75rem;padding-bottom:0.4rem;border-bottom:0.5px solid var(--border)}
+  .card{background:var(--paper-card);border:0.5px solid var(--border);border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:0.75rem;box-shadow:var(--shadow)}
+  .blist{list-style:none;padding:0}
+  .blist li{position:relative;padding-left:1.1rem;font-size:13px;color:var(--ink-soft);line-height:1.75;margin-bottom:4px}
+  .blist li::before{content:'–';position:absolute;left:0;color:var(--ink-muted)}
+  .blist li strong{color:var(--ink);font-weight:500}
+  .numbered{list-style:none;padding:0;counter-reset:steps}
+  .numbered li{position:relative;padding-left:2rem;font-size:13px;color:var(--ink-soft);line-height:1.75;margin-bottom:10px;counter-increment:steps}
+  .numbered li::before{content:counter(steps);position:absolute;left:0;top:0;width:1.4rem;height:1.4rem;background:var(--accent);color:white;border-radius:50%;font-size:11px;font-weight:500;display:flex;align-items:center;justify-content:center;line-height:1}
+  .numbered li strong{color:var(--ink);font-weight:500}
+  .note{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:0.75rem 1rem;font-size:13px;color:var(--ink-soft);font-style:italic;margin:0.75rem 0}
+  .warning{background:#fff3cd;border-left:3px solid #c9a227;border-radius:0 var(--radius) var(--radius) 0;padding:0.75rem 1rem;margin:0.75rem 0}
+  .warning-title{font-size:12px;font-weight:500;color:#7b3f00;margin-bottom:4px}
+  .warning-body{font-size:13px;color:#7b3f00}
+  .privacy{background:#ffe7e7;border-left:3px solid #c00000;border-radius:0 var(--radius) var(--radius) 0;padding:0.75rem 1rem;margin:0.75rem 0}
+  .privacy-title{font-size:12px;font-weight:500;color:#7b0000;margin-bottom:4px}
+  .privacy-body{font-size:13px;color:#7b0000}
+  .footer{margin-top:3rem;padding-top:1.5rem;border-top:0.5px solid var(--border);font-size:12px;color:var(--ink-muted)}
+  .footer a{color:var(--accent)}
+  hr{border:none;border-top:0.5px solid var(--border);margin:1.5rem 0}
+  p{font-size:13px;color:var(--ink-soft);line-height:1.75;margin-bottom:0.75rem}
+</style>
+</head>
+<body>
+<div style="background:#eeebe3;border-bottom:0.5px solid rgba(26,26,24,0.12);padding:0.6rem 1.5rem;font-size:12px;font-family:'DM Sans',system-ui,sans-serif;"><a href="projects.html" style="color:#3d5a80;text-decoration:none;font-weight:500;">← Projects</a> &nbsp;·&nbsp; <a href="index.html" style="color:#3d5a80;text-decoration:none;font-weight:500;">WMS AI Hub</a></div>
+<div class="page">
+  <div class="header">
+    <p class="header-meta">Waikato Management School · User Guide</p>
+    <h1>Feedback Enhancer GPT</h1>
+    <p class="subtitle">User Guide for Testing</p>
+  </div>
+  <div class="warning"><div class="warning-title">⚠ Important — this is a prototype</div><div class="warning-body">This tool is in active development and has not yet been independently validated. Always apply your own professional judgment. Your feedback is what will improve it.</div></div>
+  
+<div class="section">
+  <p class="section-label">What this tool does</p>
+  <div class="card">
+    <p>The Feedback Enhancer takes your marking notes and turns them into polished, student-facing feedback. You make every decision about the grade and what to say — the tool handles the writing. It will not add anything you have not provided.</p>
+    <div class="note">Your notes drive everything. The richer your notes, the better the output. If your notes are sparse, the tool will flag the gap rather than invent content.</div>
+  </div>
+</div>
+<div class="section">
+  <p class="section-label">Before you start</p>
+  <div class="card">
+    <p>Have the following ready before opening the tool:</p>
+    <ul class="blist">
+      <li><strong>The assignment rubric.</strong> You will be asked to upload or paste it. The tool needs it before it will accept any notes.</li>
+      <li><strong>Your marking notes.</strong> These can be rough — shorthand, bullet points, partial sentences. The tool will work with whatever you provide.</li>
+      <li><strong>A sense of your preferred feedback tone.</strong> e.g. direct, encouraging, formal, conversational. You will be asked at the start.</li>
+    </ul>
+    <div class="privacy"><div class="privacy-title">🔒 Privacy — student data</div><div class="privacy-body">DO NOT include any student-identifying information. Remove or replace all names, student ID numbers, and any other details that could identify a student before pasting content into this tool. You are responsible for managing your own workflow to keep track of which anonymised submission belongs to which student.</div></div>
+  </div>
+</div>
+<div class="section">
+  <p class="section-label">How it works — step by step</p>
+  <div class="card">
+    <p>The tool guides you through the process. You do not need to follow a script — just answer its questions.</p>
+    <ol class="numbered">
+      <li><strong>Open the tool and answer the opening questions.</strong> It will ask for the assignment name, cohort level, your name as marker, your preferred feedback tone, any phrases you want to avoid, and your preferred feedback length. Answer as many or as few as you like.</li>
+      <li><strong>Upload or paste your rubric.</strong> The tool will not proceed until it has the rubric. Upload as a Word document, PDF, or paste as plain text.</li>
+      <li><strong>Paste your notes for each student.</strong> Work through students one at a time. Paste your shorthand notes and the tool will produce a draft feedback section for that student.</li>
+      <li><strong>Review the output.</strong> Read it carefully. Check that it accurately reflects your assessment. If something is wrong or missing, correct it. You are the marker — the output is a draft, not a final product.</li>
+      <li><strong>Copy the feedback into your marking record.</strong> Once you are satisfied, copy it into wherever you record student feedback.</li>
+    </ol>
+    <div class="privacy"><div class="privacy-title">🔒 Privacy — student data</div><div class="privacy-body">DO NOT include any student-identifying information. Remove or replace all names, student ID numbers, and any other details that could identify a student before pasting content into this tool. You are responsible for managing your own workflow to keep track of which anonymised submission belongs to which student.</div></div>
+    <div class="note">If the tool says "Insufficient notes for [criterion] — please provide additional input", it means your notes did not cover that criterion. Add more detail or skip it — do not expect the tool to fill the gap.</div>
+  </div>
+</div>
+<div class="section">
+  <p class="section-label">What to watch for</p>
+  <div class="card">
+    <ul class="blist">
+      <li>Does the feedback accurately reflect what you wrote in your notes — no additions, no omissions?</li>
+      <li>Does the tone match your usual feedback style?</li>
+      <li>Is the length appropriate for the assignment and cohort?</li>
+      <li>Is there anything in the output you would not say yourself?</li>
+    </ul>
+  </div>
+</div>
+<div class="section">
+  <p class="section-label">How to give feedback on the tool</p>
+  <div class="card">
+    <p>After testing, please note:</p>
+    <ul class="blist">
+      <li>What worked well</li>
+      <li>What did not work or was confusing</li>
+      <li>Any output that felt wrong or unexpected</li>
+      <li>How long it took compared to writing feedback manually</li>
+    </ul>
+    <p style="margin-top:0.75rem">Send your feedback directly to Diego Carretero or use the feedback form on the WMS AI Hub.</p>
+  </div>
+</div>
+  <div class="footer">Questions or difficulties? Contact Diego Carretero: <a href="mailto:diego.carretero@waikato.ac.nz">diego.carretero@waikato.ac.nz</a></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ethics Application Preparation Assistant — WMS AI Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--ink:#1a1a18;--ink-soft:#4a4a46;--ink-muted:#8a8a84;--paper:#f7f5f0;--paper-warm:#eeebe3;--paper-card:#ffffff;--accent:#3d5a80;--accent-light:#e8eef4;--teal:#1d7a6a;--teal-light:#e2f0ed;--border:rgba(26,26,24,0.12);--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--radius:8px;--shadow:0 1px 3px rgba(0,0,0,0.07),0 4px 12px rgba(0,0,0,0.04)}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:14px;line-height:1.7}
+  .page{max-width:860px;margin:0 auto;padding:2rem 1.5rem 5rem}
+  .header{border-bottom:1.5px solid var(--ink);padding-bottom:1.5rem;margin-bottom:2rem}
+  .header-meta{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:0.5rem}
+  h1{font-family:var(--serif);font-size:2.2rem;font-weight:400;line-height:1.2;margin-bottom:0.4rem}
+  .subtitle{font-size:13px;color:var(--ink-soft);font-style:italic}
+  .section{margin-bottom:2rem}
+  .section-label{font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:0.75rem;padding-bottom:0.4rem;border-bottom:0.5px solid var(--border)}
+  .card{background:var(--paper-card);border:0.5px solid var(--border);border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:0.75rem;box-shadow:var(--shadow)}
+  .blist{list-style:none;padding:0}
+  .blist li{position:relative;padding-left:1.1rem;font-size:13px;color:var(--ink-soft);line-height:1.75;margin-bottom:4px}
+  .blist li::before{content:'–';position:absolute;left:0;color:var(--ink-muted)}
+  .blist li strong{color:var(--ink);font-weight:500}
+  .numbered{list-style:none;padding:0;counter-reset:steps}
+  .numbered li{position:relative;padding-left:2rem;font-size:13px;color:var(--ink-soft);line-height:1.75;margin-bottom:10px;counter-increment:steps}
+  .numbered li::before{content:counter(steps);position:absolute;left:0;top:0;width:1.4rem;height:1.4rem;background:var(--accent);color:white;border-radius:50%;font-size:11px;font-weight:500;display:flex;align-items:center;justify-content:center;line-height:1}
+  .numbered li strong{color:var(--ink);font-weight:500}
+  .note{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:0.75rem 1rem;font-size:13px;color:var(--ink-soft);font-style:italic;margin:0.75rem 0}
+  .warning{background:#fff3cd;border-left:3px solid #c9a227;border-radius:0 var(--radius) var(--radius) 0;padding:0.75rem 1rem;margin:0.75rem 0}
+  .warning-title{font-size:12px;font-weight:500;color:#7b3f00;margin-bottom:4px}
+  .warning-body{font-size:13px;color:#7b3f00}
+  .privacy{background:#ffe7e7;border-left:3px solid #c00000;border-radius:0 var(--radius) var(--radius) 0;padding:0.75rem 1rem;margin:0.75rem 0}
+  .privacy-title{font-size:12px;font-weight:500;color:#7b0000;margin-bottom:4px}
+  .privacy-body{font-size:13px;color:#7b0000}
+  .footer{margin-top:3rem;padding-top:1.5rem;border-top:0.5px solid var(--border);font-size:12px;color:var(--ink-muted)}
+  .footer a{color:var(--accent)}
+  hr{border:none;border-top:0.5px solid var(--border);margin:1.5rem 0}
+  p{font-size:13px;color:var(--ink-soft);line-height:1.75;margin-bottom:0.75rem}
+</style>
+</head>
+<body>
+<div style="background:#eeebe3;border-bottom:0.5px solid rgba(26,26,24,0.12);padding:0.6rem 1.5rem;font-size:12px;font-family:'DM Sans',system-ui,sans-serif;"><a href="projects.html" style="color:#3d5a80;text-decoration:none;font-weight:500;">← Projects</a> &nbsp;·&nbsp; <a href="index.html" style="color:#3d5a80;text-decoration:none;font-weight:500;">WMS AI Hub</a></div>
+<div class="page">
+  <div class="header">
+    <p class="header-meta">Waikato Management School · User Guide</p>
+    <h1>Ethics Application Preparation Assistant</h1>
+    <p class="subtitle">User Guide for Testing</p>
+  </div>
+  <div class="warning"><div class="warning-title">⚠ Important — this is a prototype</div><div class="warning-body">This tool is in active development and has not yet been independently validated. Always apply your own professional judgment. Your feedback is what will improve it.</div></div>
+  
+<div class="section">
+  <p class="section-label">What this tool does</p>
+  <div class="card">
+    <p>The Ethics Application Preparation Assistant guides WMS staff and students through the preparation stage before submitting a research ethics application. It identifies the correct form and the documents required. It does not approve research, complete forms, or submit applications — it handles the navigation, not the content.</p>
+  </div>
+</div>
+<div class="section">
+  <p class="section-label">Before you start</p>
+  <div class="card">
+    <p>You do not need to prepare anything in advance. The tool collects everything through its questions. It helps to have a rough sense of your project type — e.g. MBA research, PhD preliminary, staff research, or a course application.</p>
+  </div>
+</div>
+<div class="section">
+  <p class="section-label">How it works — step by step</p>
+  <div class="card">
+    <ol class="numbered">
+      <li><strong>Open the tool and answer the first question.</strong> It will ask what type of project you are preparing an ethics application for. Select the option that best matches.</li>
+      <li><strong>Follow the decision pathway.</strong> The tool asks one question at a time and routes you based on your answers — whether your project collects data from people, whether participants are under 16, and so on.</li>
+      <li><strong>Receive your checklist.</strong> At the end, the tool tells you which ethics form to use and which supporting documents to prepare before entering the ethics portal.</li>
+      <li><strong>If your situation is unclear,</strong> the tool will direct you to the WMS Ethics Committee rather than guessing. Follow that advice.</li>
+    </ol>
+  </div>
+</div>
+<div class="section">
+  <p class="section-label">What to watch for</p>
+  <div class="card">
+    <ul class="blist">
+      <li>Did the tool correctly identify your project type and route you to the right form?</li>
+      <li>Were the document requirements accurate and complete?</li>
+      <li>Was any step confusing or unclear?</li>
+      <li>Did the tool ever suggest something that seemed wrong — if so, what?</li>
+    </ul>
+  </div>
+</div>
+<div class="section">
+  <p class="section-label">How to give feedback on the tool</p>
+  <div class="card">
+    <p>After testing, please note:</p>
+    <ul class="blist">
+      <li>Whether the routing matched your actual situation</li>
+      <li>Any step where the tool felt uncertain or unclear</li>
+      <li>Whether the final checklist was accurate</li>
+    </ul>
+    <p style="margin-top:0.75rem">Send your feedback directly to Diego Carretero or use the feedback form on the WMS AI Hub.</p>
+  </div>
+</div>
+  <div class="footer">Questions or difficulties? Contact Diego Carretero: <a href="mailto:diego.carretero@waikato.ac.nz">diego.carretero@waikato.ac.nz</a></div>
+</div>
+</body>
+</html>
