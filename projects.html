@@ -423,7 +423,7 @@ const definitions = {
   },
   "fluency-bias": {
     term: "Anti-bias constraint",
-    body: "A documented tendency in AI grading tools: they reward longer, more fluently written submissions with higher scores, even when the analytical content is thin. The Marking Consistency agent includes an explicit instruction to assess analytical quality, not writing style or submission length.",
+    body: "A documented tendency in AI grading tools: they reward longer, more fluently written submissions with higher scores, even when the analytical content is thin. AlGhamdi et al. (2026) found that prompt structure and task order both affect this — longer outputs are disproportionately rewarded. Trikoili et al. (2024) found ChatGPT consistently assigned higher scores than human graders and was more lenient with partial answers. The Marking Consistency agent includes an explicit instruction to assess analytical quality, not writing style or submission length.",
     example: "A 1,500-word submission full of polished language but circular argument should not score higher than a 900-word submission that makes a clear, evidence-backed case."
   },
   "sign-off": {
@@ -468,17 +468,17 @@ const definitions = {
   },
   "lit-review": {
     term: "Research library",
-    body: "A research library covering: AI-assisted grading, GenAI in higher education, feedback quality and learner-centred feedback, rubric reliability, human-in-the-loop principles, LLM bias patterns, and institutional AI adoption. Every design choice in the assessment agents is traceable to a finding or a known limitation in this literature.",
+    body: "15 articles covering: AI-assisted grading (Huang et al., 2026; Wetzler et al., 2025; Trikoili et al., 2024; Kortemeyer, 2023; Messer et al., 2025), feedback quality and learner-centred feedback (Implementation Considerations, 2025; AlGhamdi et al., 2026), systematic reviews (Deepshikha, 2025; Deepshikha, 2026), institutional AI adoption (Henadirage et al., 2026; Wang et al., 2024), and prompt engineering and frameworks (Jefferies, WMS; MIT Sloan EdTech; EDUCAUSE, 2025; Fischer et al., 2024). Every design choice in the assessment agents is traceable to a finding or a known limitation in this literature.",
     example: ""
   },
   "complement": {
     term: "AI as support, not replacement",
-    body: "The consistent finding across the AI grading literature: tools work best when they support human markers, not replace them. Students value human connection in feedback even when AI-generated feedback is accurate. All agents in this project are designed on this principle — the human retains final accountability on every output.",
+    body: "The consistent finding across the AI grading literature: tools work best when they support human markers, not replace them. Deepshikha (2025, 2026) and Implementation Considerations (2025) all emphasise that human oversight is non-negotiable — students value human connection in feedback even when AI-generated feedback is accurate. All agents in this project are designed on this principle — the human retains final accountability on every output.",
     example: ""
   },
   "rubric-detail": {
     term: "Rubric quality drives output reliability",
-    body: "Multiple studies found that AI grading performance improves substantially when the agent has access to detailed rubric descriptors and at least one calibration example. Vague criteria produce unreliable outputs. This is why the knowledge base documents contain full band descriptors, and why the rubric quality gate exists.",
+    body: "Multiple studies found that AI grading performance improves substantially when the agent has access to detailed rubric descriptors and at least one calibration example. Huang et al. (2026) demonstrated this directly — ICC improved from below 0.5 to above 0.7 after adding rubrics and a good exemplar. Deepshikha (2025, 2026) and Kortemeyer (2023) draw the same conclusion across different subject areas. Vague criteria produce unreliable outputs. This is why the knowledge base documents contain full band descriptors, and why the rubric quality gate exists.",
     example: ""
   },
   "marker-variability": {
@@ -498,7 +498,7 @@ const definitions = {
   },
   "field-gap": {
     term: "Honest gap in the literature",
-    body: "There is substantial research on AI grading of essays, short answers, and STEM problems. There is no peer-reviewed literature specifically on AI grading of business school case analysis — a task that requires integrating multiple frameworks, stakeholder reasoning, and strategic judgment under ambiguity. The assessment agents are explicitly framed as exploratory in that space. This is not a weakness to hide — it is the honest and defensible position.",
+    body: "There is substantial research on AI grading of essays (Wetzler et al., 2025), short answers (AlGhamdi et al., 2026), STEM problems (Kortemeyer, 2023), programming assignments (Messer et al., 2025), and design projects (Huang et al., 2026). There is no peer-reviewed literature specifically on AI grading of business school case analysis — a task that requires integrating multiple frameworks, stakeholder reasoning, and strategic judgment under ambiguity. The assessment agents are explicitly framed as exploratory in that space. This is not a weakness to hide — it is the honest and defensible position.",
     example: ""
   },
   "design-evidence": {
