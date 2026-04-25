@@ -146,6 +146,7 @@
     <a href="#external" style="color:var(--ink-muted);text-decoration:none;padding:3px 10px;border-radius:20px;border:0.5px solid var(--border);">External tools</a>
     <a href="#architecture" style="color:var(--ink-muted);text-decoration:none;padding:3px 10px;border-radius:20px;border:0.5px solid var(--border);">How agents are built</a>
     <a href="#log" style="color:var(--ink-muted);text-decoration:none;padding:3px 10px;border-radius:20px;border:0.5px solid var(--border);">Meeting log</a>
+    <a href="suggest-a-tool.html" style="color:var(--teal);text-decoration:none;padding:3px 10px;border-radius:20px;border:0.5px solid var(--teal);">Suggest a tool ↗</a>
   </div>
 
   <!-- ══════════════════════════════════════════ -->
@@ -378,14 +379,34 @@
           <span class="badge b-gray">Excel — no AI</span>
         </div>
       </div>
-      <p class="project-desc">A rubric calculator built in Excel. Takes a marker's score inputs, applies weightings, calculates the final grade, and assembles pre-written feedback templates by grade tier. Clean setup, tidy individual outputs.</p>
+      <p class="project-desc">A rubric calculator built in Excel. Takes a marker's score inputs, applies weightings, calculates the final grade, and assembles pre-written feedback templates by grade tier.</p>
       <ul class="blist">
+        <li><strong>What it is:</strong> a local Excel tool for grade arithmetic and feedback template assembly — no AI component, no external connectivity</li>
         <li><strong>Where it adds value:</strong> structured record-keeping and arithmetic automation — useful for markers who want workflow structure without AI involvement</li>
-        <li><strong>Its limit:</strong> it is a <k data-term="field-filling">field-filling tool, not a consistency tool</k> — two markers using the same scorer on the same submission produce the same arithmetic, not necessarily the same grade</li>
-        <li><strong>Feedback limitation:</strong> feedback is identical for every student at a given grade tier — no individual developmental value</li>
+        <li><strong>Key limitations:</strong> it is a <k data-term="field-filling">field-filling tool, not a consistency tool</k> — two markers using it on the same submission produce the same arithmetic, not necessarily the same grade; feedback is identical for every student at a given grade tier with no individual developmental value</li>
+        <li><strong>Data &amp; governance:</strong> N/A — local Excel file; no data leaves the institution</li>
         <li><strong>Relationship to WMS AI projects:</strong> complementary, not competing — addresses a different problem at a different point in the workflow</li>
       </ul>
     </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-title">ResearchBuddyAI</span>
+        <div class="project-meta">
+          <span class="badge b-untested">Not recommended</span>
+          <span class="badge b-gray">Web-based SaaS</span>
+        </div>
+      </div>
+      <p class="project-desc">Markets itself as a multi-model AI research assistant that cross-validates outputs to reduce hallucinations. Assessed following a LinkedIn post that came to WMS attention. Assessment outcome: not suitable for institutional use.</p>
+      <ul class="blist">
+        <li><strong>What it is:</strong> appears to be primarily a local academic networking and supervision platform — LinkedIn activity references virtual research labs, a specific regional academic community, and internship roles at approximately NZ$60/month for subscriber outreach via WhatsApp; the AI research tool product appears to have been added on top of this base and marketed to a Western audience using AI-generated assets</li>
+        <li><strong>Where it adds value:</strong> N/A — no credible value case identified after assessment</li>
+        <li><strong>Key limitations:</strong> the core claim (multi-model cross-validation producing zero hallucinations) is architecturally plausible as a concept but entirely unsupported — no peer-reviewed evidence, no methodology documentation, no independent validation; the LinkedIn post used what appears to be a fake AI-generated UI screenshot; the product website has no named team, no founding story, and emoji as section headers throughout; monetisation relies on opaque credit consumption, fake urgency timers, and comparison tables claiming 100% savings versus human researchers</li>
+        <li><strong>Data &amp; governance:</strong> non-starter institutionally — their own privacy policy confirms work is processed through third-party infrastructure with no institutional data agreement; data leaves the university with no contractual protection</li>
+        <li><strong>Relationship to WMS AI projects:</strong> none — nothing here to build on or reference</li>
+      </ul>
+    </div>
+
   </div>
 
   <hr>

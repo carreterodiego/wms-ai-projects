@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Site designed and developed by Diego Carretero · Waikato Management School · 2026 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suggest a Tool — WMS AI Academic Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1a18;
+    --ink-soft: #4a4a46;
+    --ink-muted: #8a8a84;
+    --paper: #f7f5f0;
+    --paper-warm: #eeebe3;
+    --paper-card: #ffffff;
+    --accent: #3d5a80;
+    --accent-light: #e8eef4;
+    --teal: #1d7a6a;
+    --teal-light: #e2f0ed;
+    --amber: #b06000;
+    --amber-light: #fdf0e0;
+    --purple: #5a3e8a;
+    --purple-light: #f0ecf8;
+    --coral: #c0392b;
+    --coral-light: #fdecea;
+    --border: rgba(26,26,24,0.12);
+    --border-strong: rgba(26,26,24,0.22);
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --radius: 8px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.07), 0 4px 12px rgba(0,0,0,0.04);
+  }
+  body { font-family: var(--sans); background: var(--paper); color: var(--ink); font-size: 14px; line-height: 1.7; padding: 2rem 1rem 4rem; }
+  .page { max-width: 900px; margin: 0 auto; }
+
+  .header { border-bottom: 1.5px solid var(--ink); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+  .header-meta { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.5rem; }
+  .header h1 { font-family: var(--serif); font-size: 2.2rem; font-weight: 400; color: var(--ink); line-height: 1.2; margin-bottom: 0.6rem; }
+  .header-intro { font-size: 14px; color: var(--ink-soft); line-height: 1.8; max-width: 680px; }
+
+  .section { margin-bottom: 2.5rem; }
+  .section-title { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1.5px solid var(--ink); }
+  .section-label { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.75rem; padding-bottom: 0.4rem; border-bottom: 0.5px solid var(--border); }
+
+  .card { background: var(--paper-card); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 0.75rem; box-shadow: var(--shadow); }
+  .info-card { background: var(--paper-warm); border-radius: var(--radius); padding: 1rem 1.1rem; border: 0.5px solid var(--border); }
+
+  .blist { list-style: none; padding: 0; }
+  .blist li { position: relative; padding-left: 1.1rem; font-size: 13px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 3px; }
+  .blist li::before { content: '–'; position: absolute; left: 0; color: var(--ink-muted); }
+  .blist li strong { color: var(--ink); font-weight: 500; }
+
+  .badge { font-size: 10px; font-weight: 500; letter-spacing: 0.03em; padding: 2px 8px; border-radius: 20px; white-space: nowrap; }
+  .b-gray { background: var(--paper-warm); color: var(--ink-soft); border: 0.5px solid var(--border); }
+  .b-soon { background: var(--amber-light); color: var(--amber); }
+  .b-done { background: var(--teal-light); color: var(--teal); }
+
+  /* Assessed tool cards */
+  .tool-card { background: var(--paper-card); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 0.75rem; box-shadow: var(--shadow); }
+  .tool-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
+  .tool-title { font-size: 14px; font-weight: 500; color: var(--ink); }
+  .tool-meta { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
+  .tool-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 0.6rem; }
+
+  /* Submit placeholder */
+  .submit-block { background: var(--teal-light); border: 0.5px solid rgba(29,122,106,0.25); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; }
+  .submit-block p { font-size: 13px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 1rem; }
+  .submit-btn { display: inline-block; padding: 0.55rem 1.3rem; background: var(--teal); color: #fff; text-decoration: none; border-radius: 20px; font-size: 13px; font-weight: 500; font-family: var(--sans); opacity: 0.55; cursor: not-allowed; pointer-events: none; }
+  .submit-note { font-size: 11px; color: var(--ink-muted); margin-top: 0.75rem; }
+
+  hr { border: none; border-top: 0.5px solid var(--border); margin: 2rem 0; }
+
+  .footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 0.5px solid var(--border); font-size: 12px; color: var(--ink-muted); }
+
+  @media (max-width: 580px) { .header h1 { font-size: 1.8rem; } }
+</style>
+</head>
+
+<body id="top">
+
+<!-- STICKY TOP NAV -->
+<div style="position:sticky;top:0;z-index:100;background:var(--paper-warm);border-bottom:0.5px solid var(--border);padding:0.6rem 1.5rem;font-size:12px;font-family:var(--sans);display:flex;align-items:center;justify-content:space-between;">
+  <a href="index.html" style="color:var(--accent);text-decoration:none;font-weight:500;">← WMS AI Academic Hub</a>
+  <a href="projects.html#external" style="color:var(--ink-muted);text-decoration:none;font-size:11px;">See all assessed tools →</a>
+</div>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <p class="header-meta">Waikato Management School &nbsp;·&nbsp; AI Initiative</p>
+    <h1>Suggest a Tool</h1>
+    <p class="header-intro">This hub is a shared resource. If you come across an AI tool that might be useful for teaching, assessment, or research at WMS, flag it here. No formal write-up needed — just a name and a line on what it does. We review every suggestion and add assessed tools to the <a href="projects.html#external" style="color:var(--accent);">external tools page</a>.</p>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="section">
+    <h2 class="section-title">How to suggest a tool</h2>
+    <div class="card">
+      <p style="font-size:13px; color:var(--ink-soft); line-height:1.8; margin-bottom:0.75rem;">The bar is intentionally low. We're not asking for a full review — just enough to know what to look at. A useful suggestion includes:</p>
+      <ul class="blist">
+        <li><strong>Tool name</strong> — and a link if you have one</li>
+        <li><strong>What it does</strong> — one or two sentences is enough</li>
+        <li><strong>Why you think it's relevant</strong> — which part of the WMS workflow it might fit: marking, feedback, research, teaching, student support</li>
+        <li><strong>Optional:</strong> whether you've tried it and what your initial impression was</li>
+      </ul>
+      <p style="font-size:13px; color:var(--ink-soft); line-height:1.8; margin-top:0.75rem;">We will acknowledge every suggestion, and if a tool is assessed and added to the hub, the person who flagged it will be credited.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- SUBMISSION PLACEHOLDER -->
+  <div class="section">
+    <h2 class="section-title">Submit a suggestion</h2>
+    <div class="submit-block">
+      <p>The submission form is being set up. Once live, you'll be able to submit a suggestion directly from this page in under two minutes.</p>
+      <p>In the meantime, send your suggestion directly to <strong>Diego Carretero</strong> — reach out via Teams or WMS email.</p>
+      <span class="submit-btn">Submit a suggestion (coming soon)</span>
+      <p class="submit-note">Submission method to be confirmed — a Microsoft Form via the WMS tenant is the likely approach.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- TOOLS ALREADY ASSESSED -->
+  <div class="section">
+    <h2 class="section-title">Tools already assessed</h2>
+    <p style="font-size:13px; color:var(--ink-soft); line-height:1.8; margin-bottom:1.25rem;">These tools have been reviewed and documented on the <a href="projects.html#external" style="color:var(--accent);">projects page</a>. Full assessments — including where each tool adds value and where its limits are — are available there.</p>
+
+    <div class="tool-card">
+      <div class="tool-header">
+        <span class="tool-title">Score Automator</span>
+        <div class="tool-meta">
+          <span class="badge b-gray">Excel — no AI</span>
+          <span class="badge b-done">Assessed</span>
+        </div>
+      </div>
+      <p class="tool-desc">A local Excel rubric calculator — no AI, no external connectivity. Useful for grade arithmetic and workflow structure. Not a consistency tool: it records the marker's decision, it does not support it. No data governance concerns. Full assessment on the <a href="projects.html#external" style="color:var(--accent);">projects page</a>.</p>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-header">
+        <span class="tool-title">ResearchBuddyAI</span>
+        <div class="tool-meta">
+          <span class="badge b-gray">Web-based SaaS</span>
+          <span class="badge" style="background:#fdecea;color:#c0392b;">Not recommended</span>
+        </div>
+      </div>
+      <p class="tool-desc">Markets itself as a multi-model AI research assistant. Assessment found no credible value case, unverifiable methodology claims, manipulative monetisation, and a data governance dealbreaker — student work leaves the institution with no contractual protection. Not suitable for institutional use. Full assessment on the <a href="projects.html#external" style="color:var(--accent);">projects page</a>.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- WHAT HAPPENS NEXT -->
+  <div class="section">
+    <h2 class="section-title">What happens after you suggest a tool</h2>
+    <div class="info-card">
+      <ul class="blist" style="margin-top:0.25rem;">
+        <li>Every suggestion is reviewed — usually within a week of the next working session</li>
+        <li>If a tool is relevant, it gets a short assessment: what it does, where it adds value, what its limits are, and how it relates to the WMS GPT toolkit</li>
+        <li>Assessed tools are added to the <a href="projects.html#external" style="color:var(--accent);">external tools section</a> of the projects page with full notes</li>
+        <li>If a tool is not relevant to WMS, you'll hear back with a brief explanation</li>
+        <li>No suggestion leads to a tool being formally adopted or recommended without a broader conversation — the assessment is the first step, not the last</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">Updated after each working session &nbsp;·&nbsp; Waikato Management School &nbsp;·&nbsp; 2026</div>
+
+</div>
+</body>
+</html>
